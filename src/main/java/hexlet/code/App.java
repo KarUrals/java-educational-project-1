@@ -2,10 +2,12 @@ package hexlet.code;
 
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calc\n0 - Exit");
+        System.out.println("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calc\n" +
+                "4 - GCD\n0 - Exit");
         System.out.print("Your choice: ");
         int choice = Integer.parseInt(Engine.getAnswer());
 
@@ -19,6 +21,10 @@ public class App {
                 break;
             case 3:
                 Engine.game = new Calc();
+                Engine.launchGame(Engine.game);
+                break;
+            case 4:
+                Engine.game = new GCD();
                 Engine.launchGame(Engine.game);
                 break;
         }
