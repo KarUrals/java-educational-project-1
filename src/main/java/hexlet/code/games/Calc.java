@@ -19,24 +19,18 @@ public class Calc implements Games {
             case 1:
                 Engine.correctAnswer = String.valueOf(number1 + number2);
                 System.out.println("Question: " + number1 + " + " + number2);
-
-                Engine.askPlayerAnswer();
-                Engine.answerAnalyse(Engine.player, Engine.answer, Engine.correctAnswer);
                 break;
             case 2:
                 Engine.correctAnswer = String.valueOf(number1 - number2);
                 System.out.println("Question: " + number1 + " - " + number2);
-
-                Engine.askPlayerAnswer();
-                Engine.answerAnalyse(Engine.player, Engine.answer, Engine.correctAnswer);
                 break;
             case 3:
                 Engine.correctAnswer = String.valueOf(number1 * number2);
                 System.out.println("Question: " + number1 + " * " + number2);
-
-                Engine.askPlayerAnswer();
-                Engine.answerAnalyse(Engine.player, Engine.answer, Engine.correctAnswer);
                 break;
         }
+
+        Engine.askPlayerAnswer();
+        Engine.answerAnalyse(Engine.player, Engine.answer, Engine.correctAnswer);
     }
 }
