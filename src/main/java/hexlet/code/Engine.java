@@ -61,4 +61,11 @@ public class Engine {
         System.out.print("Your answer: ");
         answer = getAnswer();
     }
+
+    public static void launchGame(Games game) {
+        greeting();
+        createNewPlayer();
+        startGame(player, game);
+        endGame(player);
+    }
 }
