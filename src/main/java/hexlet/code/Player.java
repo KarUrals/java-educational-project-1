@@ -3,7 +3,6 @@ package hexlet.code;
 public class Player {
     private String name;
     private int correctAnswerCount;
-    private final int EXIT = 4;
 
     public Player(String name) {
         this.name = name;
@@ -21,7 +20,7 @@ public class Player {
         correctAnswerCount++;
     }
 
-    public void exitEven() {
-        this.correctAnswerCount = EXIT;
+    public void exitGames() {
+        this.correctAnswerCount = Engine.MAX_ROUND_NUMBER + 1;
     }
 }
