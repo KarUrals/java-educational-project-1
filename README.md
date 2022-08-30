@@ -7,3 +7,5 @@
 #### Calc game asciinema: https://asciinema.org/a/517706
 
 #### GCD game asciinema: https://asciinema.org/a/517779
+
+#### Progression game asciinema: https://asciinema.org/a/517890

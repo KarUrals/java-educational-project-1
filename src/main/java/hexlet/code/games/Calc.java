@@ -5,12 +5,12 @@ import hexlet.code.Engine;
 public class Calc implements Games {
 
     @Override
-    public void displayTask() {
+    public final void displayTask() {
         System.out.println("What is the result of the expression?");
     }
 
     @Override
-    public void runGameRound() {
+    public final void runGameRound() {
         final int numberOfOperations = 3;
 
         int number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
@@ -34,6 +34,7 @@ public class Calc implements Games {
                 break;
         }
         System.out.println("Question: " + number1 + operator + number2);
+
         Engine.setUserAnswer();
         Engine.answerAnalyse(Engine.getPlayer(), Engine.getUserAnswer(), Engine.getCorrectAnswer());
     }

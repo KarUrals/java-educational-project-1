@@ -8,19 +8,19 @@ public class Player {
         this.name = enteredName;
     }
 
-    public String getName() {
+    public final String getName() {
         return name;
     }
 
-    public int getCorrectAnswerCount() {
+    public final  int getCorrectAnswerCount() {
         return correctAnswerCount;
     }
 
-    public void increaseCorrectAnswersCount() {
+    public final void increaseCorrectAnswersCount() {
         correctAnswerCount++;
     }
 
-    public void exitGames() {
+    public final void exitGames() {
         this.correctAnswerCount = Engine.MAX_ROUND_NUMBER + 1;
     }
 }
