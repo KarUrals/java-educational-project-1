@@ -24,13 +24,6 @@ public class Engine {
         return in.nextLine();
     }
 
-    public static Games getGame() {
-        return game;
-    }
-    public static void setGame(Games g) {
-        game = g;
-    }
-
     public static Player getPlayer() {
         return player;
     }
@@ -86,9 +79,10 @@ public class Engine {
     }
 
     public static void launchGame(Games selectedGame) {
+        game = selectedGame;
         greeting();
         createNewPlayer();
-        startGame(player, selectedGame);
+        startGame(player, game);
         endGame(player);
     }
 }
