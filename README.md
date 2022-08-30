@@ -9,3 +9,5 @@
 #### GCD game asciinema: https://asciinema.org/a/517779
 
 #### Progression game asciinema: https://asciinema.org/a/517890
+
+#### Prime game asciinema: https://asciinema.org/a/517892
