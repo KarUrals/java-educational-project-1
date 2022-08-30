@@ -11,27 +11,30 @@ public class Calc implements Games {
 
     @Override
     public void runGameRound() {
-        int number1 = Engine.setNumber(1, 99);
-        int number2 = Engine.setNumber(1, 99);
-        int sign = Engine.setNumber(1, 3);
-        String operator = null;
+        final int numberOfOperations = 3;
 
-        switch (sign) {
-            case 1:
-                Engine.correctAnswer = String.valueOf(number1 + number2);
+        int number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+        int number2 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+        String operator = String.valueOf(Engine.setRandomNumber(1, numberOfOperations));
+
+        switch (operator) {
+            case "1":
+                Engine.setCorrectAnswer(String.valueOf(number1 + number2));
                 operator = " + ";
                 break;
-            case 2:
-                Engine.correctAnswer = String.valueOf(number1 - number2);
+            case "2":
+                Engine.setCorrectAnswer(String.valueOf(number1 - number2));
                 operator = " - ";
                 break;
-            case 3:
-                Engine.correctAnswer = String.valueOf(number1 * number2);
+            case "3":
+                Engine.setCorrectAnswer(String.valueOf(number1 * number2));
                 operator = " * ";
+                break;
+            default:
                 break;
         }
         System.out.println("Question: " + number1 + operator + number2);
-        Engine.askPlayerAnswer();
-        Engine.answerAnalyse(Engine.player, Engine.answer, Engine.correctAnswer);
+        Engine.setUserAnswer();
+        Engine.answerAnalyse(Engine.getPlayer(), Engine.getUserAnswer(), Engine.getCorrectAnswer());
     }
 }

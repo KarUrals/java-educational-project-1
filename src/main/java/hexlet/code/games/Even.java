@@ -11,11 +11,11 @@ public class Even implements Games {
 
     @Override
     public void runGameRound() {
-        int number = Engine.setNumber(1, 99);
-        Engine.correctAnswer = number % 2 == 0 ? "yes" : "no";
+        int number = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+        Engine.setCorrectAnswer(number % 2 == 0 ? "yes" : "no");
         System.out.println("Question: " + number);
 
-        Engine.askPlayerAnswer();
-        Engine.answerAnalyse(Engine.player, Engine.answer, Engine.correctAnswer);
+        Engine.setUserAnswer();
+        Engine.answerAnalyse(Engine.getPlayer(), Engine.getUserAnswer(), Engine.getCorrectAnswer());
     }
 }

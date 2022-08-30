@@ -6,16 +6,17 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int MAX_ROUND_NUMBER = 3;
-    public static String playerName;
-    public static Games game;
-    public static Player player;
-    public static String answer;
-    public static String correctAnswer;
+    public static final int MAX_RANDOM_NUMBER = 99;
+    private static String playerName;
+    private static Games game;
+    private static Player player;
+    private static String userAnswer;
+    private static String correctAnswer;
 
-    public static int setNumber(int min, int max) {
+    public static int setRandomNumber(int min, int max) {
         int range = max - min + 1;
 
-        return (int)(Math.random() * range) + min;
+        return (int) (Math.random() * range) + min;
     }
 
     public static String getAnswer() {
@@ -23,16 +24,42 @@ public class Engine {
         return in.nextLine();
     }
 
-    public static void startGame(Player player, Games game) {
-        game.displayTask();
-        while (player.getCorrectAnswerCount() < MAX_ROUND_NUMBER) {
-            game.runGameRound();
+    public static Games getGame() {
+        return game;
+    }
+    public static void setGame(Games g) {
+        game = g;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static String getUserAnswer() {
+        return userAnswer;
+    }
+    public static void setUserAnswer() {
+        System.out.print("Your answer: ");
+        userAnswer = getAnswer();
+    }
+
+    public static String getCorrectAnswer() {
+        return correctAnswer;
+    }
+    public static void setCorrectAnswer(String s) {
+        correctAnswer = s;
+    }
+
+    public static void startGame(Player currentPlayer, Games selectedGame) {
+        selectedGame.displayTask();
+        while (currentPlayer.getCorrectAnswerCount() < MAX_ROUND_NUMBER) {
+            selectedGame.runGameRound();
         }
     }
 
-    public static void endGame(Player player) {
-        if (player.getCorrectAnswerCount() == MAX_ROUND_NUMBER) {
-            System.out.println("Congratulations, " + player.getName() + "!");
+    public static void endGame(Player currentPlayer) {
+        if (currentPlayer.getCorrectAnswerCount() == MAX_ROUND_NUMBER) {
+            System.out.println("Congratulations, " + currentPlayer.getName() + "!");
         }
     }
 
@@ -46,26 +73,22 @@ public class Engine {
         System.out.println("Hello, " + playerName + "!");
     }
 
-    public static void answerAnalyse(Player player, String answer, String correctAnswer) {
-        if (answer.equals(correctAnswer)) {
+    public static void answerAnalyse(Player currentPlayer, String answer, String gameCorrectAnswer) {
+        if (answer.equals(gameCorrectAnswer)) {
             System.out.println("Correct!");
-            player.increaseCorrectAnswersCount();
+            currentPlayer.increaseCorrectAnswersCount();
         } else {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'");
-            System.out.println("Let's try again, " + player.getName() + "!");
-            player.exitGames();
+            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
+                                + gameCorrectAnswer + "'");
+            System.out.println("Let's try again, " + currentPlayer.getName() + "!");
+            currentPlayer.exitGames();
         }
     }
 
-    public static void askPlayerAnswer() {
-        System.out.print("Your answer: ");
-        answer = getAnswer();
-    }
-
-    public static void launchGame(Games game) {
+    public static void launchGame(Games selectedGame) {
         greeting();
         createNewPlayer();
-        startGame(player, game);
+        startGame(player, selectedGame);
         endGame(player);
     }
 }

@@ -4,16 +4,16 @@ public class Player {
     private String name;
     private int correctAnswerCount;
 
-    public Player(String name) {
-        this.name = name;
+    public Player(String enteredName) {
+        this.name = enteredName;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getCorrectAnswerCount() {
-        return this.correctAnswerCount;
+        return correctAnswerCount;
     }
 
     public void increaseCorrectAnswersCount() {
