@@ -9,8 +9,8 @@ public class GCD implements Games {
 
     @Override
     public final void runGameRound() {
-        int number1 = Engine.setRandomNumber(0, Engine.MAX_RANDOM_NUMBER);
-        int number2 = Engine.setRandomNumber(0, Engine.MAX_RANDOM_NUMBER);
+        int number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+        int number2 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
         Engine.setCorrectAnswer("1");
         for (int i = 1; i <= Math.min(Math.abs(number1), Math.abs(number2)); i++) {
             if (number1 % i == 0 && number2 % i == 0) {
