@@ -16,19 +16,19 @@ public class App {
                 Engine.greeting();
                 break;
             case "2":
-                Engine.runGame(Even.GAME_TASK, Even.run());
+                Engine.runGame(Even.GAME_TASK, Even.setQuestionAnswerArray());
                 break;
             case "3":
-                Engine.runGame(Calc.GAME_TASK, Calc.run());
+                Engine.runGame(Calc.GAME_TASK, Calc.setQuestionAnswerArray());
                 break;
             case "4":
-                Engine.runGame(GCD.GAME_TASK, GCD.run());
+                Engine.runGame(GCD.GAME_TASK, GCD.setQuestionAnswerArray());
                 break;
             case "5":
-                Engine.runGame(Progression.GAME_TASK, Progression.run());
+                Engine.runGame(Progression.GAME_TASK, Progression.setQuestionAnswerArray());
                 break;
             case "6":
-                Engine.runGame(Prime.GAME_TASK, Prime.run());
+                Engine.runGame(Prime.GAME_TASK, Prime.setQuestionAnswerArray());
                 break;
             default:
                 break;
