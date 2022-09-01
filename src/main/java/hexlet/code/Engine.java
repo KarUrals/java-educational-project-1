@@ -1,14 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.Games;
-
 import java.util.Scanner;
 
 public class Engine {
     public static final int MAX_ROUND_NUMBER = 3;
     public static final int MAX_RANDOM_NUMBER = 99;
     private static String playerName;
-    private static Games game;
     private static Player player;
     private static String userAnswer;
     private static String correctAnswer;
@@ -24,36 +21,13 @@ public class Engine {
         return in.nextLine();
     }
 
-    public static Player getPlayer() {
-        return player;
-    }
-
-    public static String getUserAnswer() {
-        return userAnswer;
-    }
     public static void setUserAnswer() {
         System.out.print("Your answer: ");
         userAnswer = getAnswer();
     }
 
-    public static String getCorrectAnswer() {
-        return correctAnswer;
-    }
     public static void setCorrectAnswer(String s) {
         correctAnswer = s;
-    }
-
-    public static void startGame(Player currentPlayer, Games selectedGame) {
-        selectedGame.displayTask();
-        while (currentPlayer.getCorrectAnswerCount() < MAX_ROUND_NUMBER) {
-            selectedGame.runGameRound();
-        }
-    }
-
-    public static void endGame(Player currentPlayer) {
-        if (currentPlayer.getCorrectAnswerCount() == MAX_ROUND_NUMBER) {
-            System.out.println("Congratulations, " + currentPlayer.getName() + "!");
-        }
     }
 
     public static void createNewPlayer() {
@@ -78,11 +52,32 @@ public class Engine {
         }
     }
 
-    public static void launchGame(Games selectedGame) {
-        game = selectedGame;
+    public static void endGame(Player currentPlayer) {
+        if (currentPlayer.getCorrectAnswerCount() == MAX_ROUND_NUMBER) {
+            System.out.println("Congratulations, " + currentPlayer.getName() + "!");
+        }
+    }
+
+    public static void showTask(String task) {
+        System.out.println(task);
+    }
+
+    public static void askQuestion(String question) {
+        System.out.println(question);
+    }
+
+    public static void runGame(String gameTask, String[][] questionAnswerArray) {
         greeting();
         createNewPlayer();
-        startGame(player, game);
-        endGame(player);
+        showTask(gameTask);
+        int i = 0;
+        while (player.getCorrectAnswerCount() < MAX_ROUND_NUMBER) {
+            setCorrectAnswer(questionAnswerArray[i][1]);
+            askQuestion(questionAnswerArray[i][0]);
+            Engine.setUserAnswer();
+            Engine.answerAnalyse(player, userAnswer, correctAnswer);
+            i++;
+        }
+        Engine.endGame(player);
     }
 }

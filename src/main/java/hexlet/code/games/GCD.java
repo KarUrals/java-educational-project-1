@@ -1,25 +1,27 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-public class GCD implements Games {
-    @Override
-    public final void displayTask() {
-        System.out.println("Find the greatest common divisor of given numbers.");
-    }
+public class GCD {
+    public static final String GAME_TASK = "Find the greatest common divisor of given numbers.";
 
-    @Override
-    public final void runGameRound() {
-        int number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-        int number2 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-        Engine.setCorrectAnswer("1");
-        for (int i = 1; i <= Math.min(Math.abs(number1), Math.abs(number2)); i++) {
-            if (number1 % i == 0 && number2 % i == 0) {
-                Engine.setCorrectAnswer(String.valueOf(i));
+    public static String[][] run() {
+        String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
+        int number1;
+        int number2;
+        String correctAnswer = "1";
+
+        for (String[] pair: array) {
+            number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            number2 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            for (int j = 1; j <= Math.min(Math.abs(number1), Math.abs(number2)); j++) {
+                if (number1 % j == 0 && number2 % j == 0) {
+                    correctAnswer = String.valueOf(j);
+                }
             }
+            pair[0] = "Question: " + number1 + " " + number2;
+            pair[1] = correctAnswer;
         }
-        System.out.println("Question: " + number1 + " " + number2);
 
-        Engine.setUserAnswer();
-        Engine.answerAnalyse(Engine.getPlayer(), Engine.getUserAnswer(), Engine.getCorrectAnswer());
+        return array;
     }
 }

@@ -16,19 +16,19 @@ public class App {
                 Engine.greeting();
                 break;
             case "2":
-                Engine.launchGame(new Even());
+                Engine.runGame(Even.GAME_TASK, Even.run());
                 break;
             case "3":
-                Engine.launchGame(new Calc());
+                Engine.runGame(Calc.GAME_TASK, Calc.run());
                 break;
             case "4":
-                Engine.launchGame(new GCD());
+                Engine.runGame(GCD.GAME_TASK, GCD.run());
                 break;
             case "5":
-                Engine.launchGame(new Progression());
+                Engine.runGame(Progression.GAME_TASK, Progression.run());
                 break;
             case "6":
-                Engine.launchGame(new Prime());
+                Engine.runGame(Prime.GAME_TASK, Prime.run());
                 break;
             default:
                 break;

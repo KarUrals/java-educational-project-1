@@ -2,20 +2,21 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Even implements Games {
+public class Even {
+    public static final String GAME_TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    @Override
-    public final void displayTask() {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-    }
+    public static String[][] run() {
+        String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
+        int number;
+        String correctAnswer;
 
-    @Override
-    public final void runGameRound() {
-        int number = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-        Engine.setCorrectAnswer(number % 2 == 0 ? "yes" : "no");
-        System.out.println("Question: " + number);
+        for (String[] pair: array) {
+            number = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            correctAnswer = number % 2 == 0 ? "yes" : "no";
+            pair[0] = "Question: " + number;
+            pair[1] = correctAnswer;
+        }
 
-        Engine.setUserAnswer();
-        Engine.answerAnalyse(Engine.getPlayer(), Engine.getUserAnswer(), Engine.getCorrectAnswer());
+        return array;
     }
 }
