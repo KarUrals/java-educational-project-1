@@ -10,11 +10,11 @@ public class Engine {
     private static Player player;
     private static String userAnswer;
     private static String correctAnswer;
+    private static Random random = new Random();
 
     public static int setRandomNumber(int min, int max) {
         int range = max - min + 1;
-        Random random = new Random();
-//        return (int) (Math.random() * range) + min;
+
         return random.nextInt(range) + min;
     }
 

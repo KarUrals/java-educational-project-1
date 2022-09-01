@@ -17,23 +17,11 @@ public class Progression {
             int progressionStep = Engine.setRandomNumber(-step, step);
             int progressionSize = Engine.setRandomNumber(minProgressionSize, maxProgressionSize);
             int index = Engine.setRandomNumber(0, progressionSize - 1);
-            int[] task = new int[progressionSize];
 
             //set correct answer
             roundQuestionAnswer[1] = findCorrectAnswer(progressionSize, firstProgressionNumber, progressionStep, index);
-//            StringBuilder strBld = new StringBuilder("Question: ");
-//            for (int i = 0; i < progressionSize; i++) {
-//                task[i] = firstProgressionNumber + progressionStep * i;
-//                if (i == index) {
-//                    roundQuestionAnswer[1] = String.valueOf(task[i]);
-//                    strBld.append(".. ");
-//                } else {
-//                    strBld.append(task[i] + " ");
-//                }
-//            }
             //set question
             roundQuestionAnswer[0] = buildQuestion(progressionSize, firstProgressionNumber, progressionStep, index);
-//            roundQuestionAnswer[0] = strBld.toString();
         }
 
         return array;
