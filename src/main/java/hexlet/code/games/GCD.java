@@ -10,9 +10,10 @@ public class GCD {
         for (String[] roundQuestionAnswer: array) {
             int number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
             int number2 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            int smallestNumber = Math.min(number1, number2);
 
             //set correct answer
-            for (int j = 1; j <= Math.min(Math.abs(number1), Math.abs(number2)); j++) {
+            for (int j = 1; j <= smallestNumber; j++) {
                 if (number1 % j == 0 && number2 % j == 0) {
                     roundQuestionAnswer[1] = String.valueOf(j);
                 }
