@@ -19,21 +19,50 @@ public class Progression {
             int index = Engine.setRandomNumber(0, progressionSize - 1);
             int[] task = new int[progressionSize];
 
-            StringBuilder strBld = new StringBuilder("Question: ");
             //set correct answer
-            for (int i = 0; i < progressionSize; i++) {
-                task[i] = firstProgressionNumber + progressionStep * i;
-                if (i == index) {
-                    roundQuestionAnswer[1] = String.valueOf(task[i]);
-                    strBld.append(".. ");
-                } else {
-                    strBld.append(task[i] + " ");
-                }
-            }
+            roundQuestionAnswer[1] = findCorrectAnswer(progressionSize, firstProgressionNumber, progressionStep, index);
+//            StringBuilder strBld = new StringBuilder("Question: ");
+//            for (int i = 0; i < progressionSize; i++) {
+//                task[i] = firstProgressionNumber + progressionStep * i;
+//                if (i == index) {
+//                    roundQuestionAnswer[1] = String.valueOf(task[i]);
+//                    strBld.append(".. ");
+//                } else {
+//                    strBld.append(task[i] + " ");
+//                }
+//            }
             //set question
-            roundQuestionAnswer[0] = strBld.toString();
+            roundQuestionAnswer[0] = buildQuestion(progressionSize, firstProgressionNumber, progressionStep, index);
+//            roundQuestionAnswer[0] = strBld.toString();
         }
 
         return array;
+    }
+    private static String buildQuestion(int progressionSize, int firstNumber, int step, int index) {
+        StringBuilder strBld = new StringBuilder("Question: ");
+
+        for (int i = 0; i < progressionSize; i++) {
+            int num = firstNumber + step * i;
+            if (i == index) {
+                strBld.append(".. ");
+            } else {
+                strBld.append(num + " ");
+            }
+        }
+
+        return strBld.toString();
+    }
+
+    private static String findCorrectAnswer(int progressionSize, int firstNumber, int step, int index) {
+        String correctAnswer = null;
+
+        for (int i = 0; i < progressionSize; i++) {
+            int num = firstNumber + step * i;
+            if (i == index) {
+                correctAnswer = String.valueOf(num);
+            }
+        }
+
+        return correctAnswer;
     }
 }

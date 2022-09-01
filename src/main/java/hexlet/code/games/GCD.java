@@ -10,18 +10,32 @@ public class GCD {
         for (String[] roundQuestionAnswer: array) {
             int number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
             int number2 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-            int smallestNumber = Math.min(number1, number2);
+//            int smallestNumber = Math.min(number1, number2);
 
             //set correct answer
-            for (int j = 1; j <= smallestNumber; j++) {
-                if (number1 % j == 0 && number2 % j == 0) {
-                    roundQuestionAnswer[1] = String.valueOf(j);
-                }
-            }
+            roundQuestionAnswer[1] = findCorrectAnswer(number1, number2);
+//            for (int j = 1; j <= smallestNumber; j++) {
+//                if (number1 % j == 0 && number2 % j == 0) {
+//                    roundQuestionAnswer[1] = String.valueOf(j);
+//                }
+//            }
             //set question
             roundQuestionAnswer[0] = "Question: " + number1 + " " + number2;
         }
 
         return array;
+    }
+
+    private static String findCorrectAnswer(int firstNumber, int secondNumber) {
+        int smallestNumber = Math.min(firstNumber, secondNumber);
+        String correctAnswer = null;
+
+        for (int j = 1; j <= smallestNumber; j++) {
+            if (firstNumber % j == 0 && secondNumber % j == 0) {
+                correctAnswer = String.valueOf(j);
+            }
+        }
+
+        return correctAnswer;
     }
 }

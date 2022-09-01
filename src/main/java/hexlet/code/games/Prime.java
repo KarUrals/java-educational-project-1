@@ -14,15 +14,29 @@ public class Prime {
             //set question
             roundQuestionAnswer[0] = "Question: " + number;
             //set correct answer
-            roundQuestionAnswer[1] = "yes";
-            for (int i = 2; i <= Math.sqrt(number); i++) {
-                if (number % i == 0) {
-                    roundQuestionAnswer[1] = "no";
-                    break;
-                }
-            }
+            roundQuestionAnswer[1] = findCorrectAnswer(number);
+//            roundQuestionAnswer[1] = "yes";
+//            for (int i = 2; i <= Math.sqrt(number); i++) {
+//                if (number % i == 0) {
+//                    roundQuestionAnswer[1] = "no";
+//                    break;
+//                }
+//            }
         }
 
         return array;
+    }
+
+    private static String findCorrectAnswer(int number) {
+        String correctAnswer = "yes";
+
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                correctAnswer = "no";
+                break;
+            }
+        }
+
+        return correctAnswer;
     }
 }
