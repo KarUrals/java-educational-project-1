@@ -10,6 +10,7 @@ public class Prime {
 
         for (String[] pair: array) {
             int number = Engine.setRandomNumber(2, Engine.MAX_RANDOM_NUMBER);
+            pair[0] = "Question: " + number;
             pair[1] = "yes";
             for (int i = 2; i <= Math.sqrt(number); i++) {
                 if (number % i == 0) {
@@ -17,7 +18,6 @@ public class Prime {
                     break;
                 }
             }
-            pair[0] = "Question: " + number;
         }
 
         return array;
