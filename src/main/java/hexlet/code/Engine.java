@@ -8,50 +8,27 @@ public class Engine {
     public static final int MAX_RANDOM_NUMBER = 99;
     private static String playerName;
     private static int correctAnswerCount;
-    private static String userAnswer;
-    private static String correctAnswer;
-    private static Random random = new Random();
+    private static final Random RANDOM_NUMBER = new Random();
+    public static final Scanner IN = new Scanner(System.in);
 
-    public static int setRandomNumber(int min, int max) {
+    public static int returnRandomNumber(int min, int max) {
         int range = max - min + 1;
 
-        return random.nextInt(range) + min;
+        return RANDOM_NUMBER.nextInt(range) + min;
     }
 
-    public static String getAnswer() {
-        Scanner in = new Scanner(System.in);
-        return in.nextLine();
-    }
-
-    public static void setUserAnswer() {
-        System.out.print("Your answer: ");
-        userAnswer = getAnswer();
-    }
-
-    public static void setCorrectAnswer(String s) {
-        correctAnswer = s;
-    }
-
-    public static void greeting() {
+    private static void greeting() {
         System.out.print("\nWelcome to the Brain Games!\nMay I have your name? ");
-        playerName = getAnswer();
+        playerName = IN.nextLine();
         System.out.println("Hello, " + playerName + "!");
     }
-
-    public static void endGame() {
-        if (correctAnswerCount == MAX_ROUND_NUMBER) {
-            System.out.println("Congratulations, " + playerName + "!");
-        }
-    }
-
-    public static void showTask(String task) {
+    private static void showTask(String task) {
         System.out.println(task);
     }
-
-    public static void askQuestion(String question) {
+    private static void askQuestion(String question) {
         System.out.println(question);
     }
-    public static void answerAnalyse(String answer, String gameCorrectAnswer) {
+    private static void answerAnalyse(String answer, String gameCorrectAnswer) {
         if (answer.equals(gameCorrectAnswer)) {
             System.out.println("Correct!");
             correctAnswerCount++;
@@ -62,14 +39,21 @@ public class Engine {
             correctAnswerCount = MAX_ROUND_NUMBER + 1;
         }
     }
+    private static void endGame() {
+        if (correctAnswerCount == MAX_ROUND_NUMBER) {
+            System.out.println("Congratulations, " + playerName + "!");
+        }
+    }
+
     public static void runGame(String gameTask, String[][] questionAnswerArray) {
         greeting();
         showTask(gameTask);
         int i = 0;
         while (correctAnswerCount < MAX_ROUND_NUMBER) {
-            setCorrectAnswer(questionAnswerArray[i][1]);
+            String correctAnswer = questionAnswerArray[i][1];
             askQuestion(questionAnswerArray[i][0]);
-            Engine.setUserAnswer();
+            System.out.print("Your answer: ");
+            String userAnswer = IN.nextLine();
             Engine.answerAnalyse(userAnswer, correctAnswer);
             i++;
         }

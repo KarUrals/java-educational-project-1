@@ -13,10 +13,10 @@ public class Progression {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
-            int firstProgressionNumber = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-            int progressionStep = Engine.setRandomNumber(-step, step);
-            int progressionSize = Engine.setRandomNumber(minProgressionSize, maxProgressionSize);
-            int index = Engine.setRandomNumber(0, progressionSize - 1);
+            int firstProgressionNumber = Engine.returnRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            int progressionStep = Engine.returnRandomNumber(-step, step);
+            int progressionSize = Engine.returnRandomNumber(minProgressionSize, maxProgressionSize);
+            int index = Engine.returnRandomNumber(0, progressionSize - 1);
 
             int[] roundProgression = makeProgression(progressionSize, firstProgressionNumber, progressionStep);
 

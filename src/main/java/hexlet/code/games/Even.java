@@ -10,7 +10,7 @@ public class Even {
         int number;
 
         for (String[] roundQuestionAnswer: array) {
-            number = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            number = Engine.returnRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
             //set question
             roundQuestionAnswer[0] = "Question: " + number;
             //set correct answer

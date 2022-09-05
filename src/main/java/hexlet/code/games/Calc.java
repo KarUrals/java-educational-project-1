@@ -10,9 +10,9 @@ public class Calc {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
-            int number1 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-            int number2 = Engine.setRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-            String operator = String.valueOf(Engine.setRandomNumber(1, NUMBER_OF_OPERATIONS));
+            int number1 = Engine.returnRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            int number2 = Engine.returnRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
+            String operator = String.valueOf(Engine.returnRandomNumber(1, NUMBER_OF_OPERATIONS));
 
             //set correct answer
             switch (operator) {

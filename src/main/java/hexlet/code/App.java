@@ -11,9 +11,10 @@ public class App {
         System.out.print("Please enter the game number and press Enter.\n1 - Greet\n2 - Even\n3 - Calc\n"
                 + "4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit\nYour choice: ");
 
-        switch (Engine.getAnswer()) {
+        switch (Engine.IN.nextLine()) {
             case "1":
-                Engine.greeting();
+                System.out.print("\nWelcome to the Brain Games!\nMay I have your name? ");
+                System.out.println("Hello, " + Cli.getName() + "!");
                 break;
             case "2":
                 Engine.runGame(Even.GAME_TASK, Even.setQuestionAnswerArray());

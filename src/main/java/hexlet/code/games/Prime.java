@@ -9,7 +9,7 @@ public class Prime {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
-            int number = Engine.setRandomNumber(2, Engine.MAX_RANDOM_NUMBER);
+            int number = Engine.returnRandomNumber(2, Engine.MAX_RANDOM_NUMBER);
 
             //set question
             roundQuestionAnswer[0] = "Question: " + number;
