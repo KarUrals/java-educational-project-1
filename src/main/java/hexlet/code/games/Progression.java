@@ -18,36 +18,42 @@ public class Progression {
             int progressionSize = Engine.setRandomNumber(minProgressionSize, maxProgressionSize);
             int index = Engine.setRandomNumber(0, progressionSize - 1);
 
+            int[] roundProgression = makeProgression(progressionSize, firstProgressionNumber, progressionStep);
+
             //set correct answer
-            roundQuestionAnswer[1] = findCorrectAnswer(progressionSize, firstProgressionNumber, progressionStep, index);
+            roundQuestionAnswer[1] = findCorrectAnswer(roundProgression, index);
             //set question
-            roundQuestionAnswer[0] = buildQuestion(progressionSize, firstProgressionNumber, progressionStep, index);
+            roundQuestionAnswer[0] = buildQuestion(roundProgression, index);
         }
 
         return array;
     }
-    private static String buildQuestion(int progressionSize, int firstNumber, int step, int index) {
+    private static int[] makeProgression(int size, int firstNumber, int step) {
+        int[] progression = new int[size];
+        for (int i = 0; i < size; i++) {
+            progression[i] = firstNumber + step * i;
+        }
+        return progression;
+    }
+    private static String buildQuestion(int[] progression, int index) {
         StringBuilder strBld = new StringBuilder("Question: ");
-
-        for (int i = 0; i < progressionSize; i++) {
-            int num = firstNumber + step * i;
+        for (int i = 0; i < progression.length; i++) {
             if (i == index) {
                 strBld.append(".. ");
             } else {
-                strBld.append(num + " ");
+                strBld.append(progression[i] + " ");
             }
         }
 
         return strBld.toString();
     }
 
-    private static String findCorrectAnswer(int progressionSize, int firstNumber, int step, int index) {
+    private static String findCorrectAnswer(int[] progression, int index) {
         String correctAnswer = null;
 
-        for (int i = 0; i < progressionSize; i++) {
-            int num = firstNumber + step * i;
+        for (int i = 0; i < progression.length; i++) {
             if (i == index) {
-                correctAnswer = String.valueOf(num);
+                correctAnswer = String.valueOf(progression[i]);
             }
         }
 

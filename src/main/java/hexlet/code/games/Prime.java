@@ -21,15 +21,16 @@ public class Prime {
     }
 
     private static String findCorrectAnswer(int number) {
-        String correctAnswer = "yes";
 
+        return isPrime(number) ? "yes" : "no";
+    }
+
+    private static boolean isPrime(int number) {
         for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
-                correctAnswer = "no";
-                break;
+                return false;
             }
         }
-
-        return correctAnswer;
+        return true;
     }
 }
