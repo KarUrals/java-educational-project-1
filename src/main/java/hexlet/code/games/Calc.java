@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RundomUtils;
 
 public class Calc {
     public static final String GAME_TASK = "What is the result of the expression?";
@@ -10,9 +11,10 @@ public class Calc {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
-            int number1 = Engine.returnRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-            int number2 = Engine.returnRandomNumber(1, Engine.MAX_RANDOM_NUMBER);
-            String operator = String.valueOf(Engine.returnRandomNumber(1, NUMBER_OF_OPERATIONS));
+            int number1 = RundomUtils.returnRandomNumber(1, RundomUtils.MAX_RANDOM_NUMBER);
+            int number2 = RundomUtils.returnRandomNumber(1, RundomUtils.MAX_RANDOM_NUMBER);
+
+            String operator = String.valueOf(RundomUtils.returnRandomNumber(1, NUMBER_OF_OPERATIONS));
 
             //set correct answer
             switch (operator) {

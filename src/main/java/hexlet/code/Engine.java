@@ -1,21 +1,13 @@
 package hexlet.code;
 
-import java.util.Random;
+//import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
     public static final int MAX_ROUND_NUMBER = 3;
-    public static final int MAX_RANDOM_NUMBER = 99;
     private static String playerName;
     private static int correctAnswerCount;
-    private static final Random RANDOM_NUMBER = new Random();
     public static final Scanner IN = new Scanner(System.in);
-
-    public static int returnRandomNumber(int min, int max) {
-        int range = max - min + 1;
-
-        return RANDOM_NUMBER.nextInt(range) + min;
-    }
 
     private static void greeting() {
         System.out.print("\nWelcome to the Brain Games!\nMay I have your name? ");

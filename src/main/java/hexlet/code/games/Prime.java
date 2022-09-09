@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RundomUtils;
 
 public class Prime {
     public static final String GAME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
@@ -9,7 +10,7 @@ public class Prime {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
-            int number = Engine.returnRandomNumber(2, Engine.MAX_RANDOM_NUMBER);
+            int number = RundomUtils.returnRandomNumber(2, RundomUtils.MAX_RANDOM_NUMBER);
 
             //set question
             roundQuestionAnswer[0] = "Question: " + number;
