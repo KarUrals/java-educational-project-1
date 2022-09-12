@@ -12,27 +12,17 @@ public class App {
                 + "4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit\nYour choice: ");
         String playerChoice = Engine.IN.nextLine();
         switch (playerChoice) {
-            case "1":
+            case "1" -> {
                 System.out.print("\nWelcome to the Brain Games!\nMay I have your name? ");
                 System.out.println("Hello, " + Cli.getName() + "!");
-                break;
-            case "2":
-                Even.launchGame();
-                break;
-            case "3":
-                Calc.launchGame();
-                break;
-            case "4":
-                GCD.launchGame();
-                break;
-            case "5":
-                Progression.launchGame();
-                break;
-            case "6":
-                Prime.launchGame();
-                break;
-            default:
-                break;
+            }
+            case "2" -> Even.launchGame();
+            case "3" -> Calc.launchGame();
+            case "4" -> GCD.launchGame();
+            case "5" -> Progression.launchGame();
+            case "6" -> Prime.launchGame();
+            default -> {
+            }
         }
     }
 }
