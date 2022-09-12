@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RundomUtils;
+import static hexlet.code.RundomUtils.generateRandomNumberFromRange;
+import static hexlet.code.RundomUtils.MAX_RANDOM_NUMBER;
 
 public class Calc {
     public static final String GAME_TASK = "What is the result of the expression?";
@@ -11,10 +12,10 @@ public class Calc {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
-            int number1 = RundomUtils.returnRandomNumber(1, RundomUtils.MAX_RANDOM_NUMBER);
-            int number2 = RundomUtils.returnRandomNumber(1, RundomUtils.MAX_RANDOM_NUMBER);
+            int number1 = generateRandomNumberFromRange(1, MAX_RANDOM_NUMBER);
+            int number2 = generateRandomNumberFromRange(1, MAX_RANDOM_NUMBER);
 
-            String operator = String.valueOf(RundomUtils.returnRandomNumber(1, NUMBER_OF_OPERATIONS));
+            String operator = String.valueOf(generateRandomNumberFromRange(1, NUMBER_OF_OPERATIONS));
 
             //set correct answer
             switch (operator) {
@@ -38,5 +39,9 @@ public class Calc {
         }
 
         return array;
+    }
+
+    public static void launchGame() {
+        Engine.runGame(GAME_TASK, setQuestionAnswerArray());
     }
 }

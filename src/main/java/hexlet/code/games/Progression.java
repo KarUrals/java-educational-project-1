@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RundomUtils;
+import static hexlet.code.RundomUtils.generateRandomNumberFromRange;
+import static hexlet.code.RundomUtils.MAX_RANDOM_NUMBER;
 
 public class Progression {
     public static final String GAME_TASK = "What number is missing in the progression?";
@@ -14,10 +15,10 @@ public class Progression {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
-            int firstProgressionNumber = RundomUtils.returnRandomNumber(1, RundomUtils.MAX_RANDOM_NUMBER);
-            int progressionStep = RundomUtils.returnRandomNumber(-step, step);
-            int progressionSize = RundomUtils.returnRandomNumber(minProgressionSize, maxProgressionSize);
-            int index = RundomUtils.returnRandomNumber(0, progressionSize - 1);
+            int firstProgressionNumber = generateRandomNumberFromRange(1, MAX_RANDOM_NUMBER);
+            int progressionStep = generateRandomNumberFromRange(-step, step);
+            int progressionSize = generateRandomNumberFromRange(minProgressionSize, maxProgressionSize);
+            int index = generateRandomNumberFromRange(0, progressionSize - 1);
 
             int[] roundProgression = makeProgression(progressionSize, firstProgressionNumber, progressionStep);
 
@@ -59,5 +60,9 @@ public class Progression {
         }
 
         return correctAnswer;
+    }
+
+    public static void launchGame() {
+        Engine.runGame(GAME_TASK, setQuestionAnswerArray());
     }
 }
