@@ -8,7 +8,7 @@ public class Calc {
     public static final String GAME_TASK = "What is the result of the expression?";
     private static final int NUMBER_OF_OPERATIONS = 3;
 
-    public static String[][] setQuestionAnswerArray() {
+    public static String[][] generateQuestionAnswerPairs() {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
@@ -42,6 +42,6 @@ public class Calc {
     }
 
     public static void launchGame() {
-        Engine.runGame(GAME_TASK, setQuestionAnswerArray());
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }
 }

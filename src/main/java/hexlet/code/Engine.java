@@ -26,14 +26,12 @@ public class Engine {
         } else {
             System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
                     + gameCorrectAnswer + "'");
-            System.out.println("Let's try again, " + playerName + "!");
             correctAnswerCount = MAX_ROUND_NUMBER + 1;
         }
     }
     private static void endGame() {
-        if (correctAnswerCount == MAX_ROUND_NUMBER) {
-            System.out.println("Congratulations, " + playerName + "!");
-        }
+        String message = correctAnswerCount == MAX_ROUND_NUMBER ? "Congratulations, " : "Let's try again, ";
+        System.out.println(message + playerName + "!");
     }
 
     public static void runGame(String gameTask, String[][] questionAnswerArray) {
@@ -45,9 +43,9 @@ public class Engine {
             askQuestion(questionAnswerArray[i][0]);
             System.out.print("Your answer: ");
             String userAnswer = IN.nextLine();
-            Engine.answerAnalyse(userAnswer, correctAnswer);
+            answerAnalyse(userAnswer, correctAnswer);
             i++;
         }
-        Engine.endGame();
+        endGame();
     }
 }

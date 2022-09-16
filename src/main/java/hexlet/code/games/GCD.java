@@ -7,7 +7,7 @@ import static hexlet.code.RundomUtils.MAX_RANDOM_NUMBER;
 public class GCD {
     public static final String GAME_TASK = "Find the greatest common divisor of given numbers.";
 
-    public static String[][] setQuestionAnswerArray() {
+    public static String[][] generateQuestionAnswerPairs() {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
@@ -37,6 +37,6 @@ public class GCD {
     }
 
     public static void launchGame() {
-        Engine.runGame(GAME_TASK, setQuestionAnswerArray());
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }
 }

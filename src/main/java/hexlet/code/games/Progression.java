@@ -7,7 +7,7 @@ import static hexlet.code.RundomUtils.MAX_RANDOM_NUMBER;
 public class Progression {
     public static final String GAME_TASK = "What number is missing in the progression?";
 
-    public static String[][] setQuestionAnswerArray() {
+    public static String[][] generateQuestionAnswerPairs() {
         final int step = 10;
         final int minProgressionSize = 5;
         final int maxProgressionSize = 10;
@@ -63,6 +63,6 @@ public class Progression {
     }
 
     public static void launchGame() {
-        Engine.runGame(GAME_TASK, setQuestionAnswerArray());
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }
 }

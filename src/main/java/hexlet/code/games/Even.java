@@ -7,7 +7,7 @@ import static hexlet.code.RundomUtils.MAX_RANDOM_NUMBER;
 public class Even {
     public static final String GAME_TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static String[][] setQuestionAnswerArray() {
+    public static String[][] generateQuestionAnswerPairs() {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
         int number;
 
@@ -16,13 +16,18 @@ public class Even {
             //set question
             roundQuestionAnswer[0] = "Question: " + number;
             //set correct answer
-            roundQuestionAnswer[1] = number % 2 == 0 ? "yes" : "no";
+            roundQuestionAnswer[1] = isEven(number) ? "yes" : "no";
         }
 
         return array;
     }
 
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
     public static void launchGame() {
-        Engine.runGame(GAME_TASK, setQuestionAnswerArray());
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }
 }
+
