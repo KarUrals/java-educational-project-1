@@ -21,13 +21,12 @@ public class Even {
 
         return array;
     }
-
-    public static boolean isEven(int number) {
-        return number % 2 == 0;
-    }
-
     public static void launchGame() {
         Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
+    }
+
+    private static boolean isEven(int number) {
+        return number % 2 == 0;
     }
 }
 

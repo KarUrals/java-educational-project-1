@@ -40,7 +40,6 @@ public class Calc {
 
         return array;
     }
-
     public static void launchGame() {
         Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }

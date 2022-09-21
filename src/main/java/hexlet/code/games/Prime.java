@@ -21,22 +21,23 @@ public class Prime {
 
         return array;
     }
+    public static void launchGame() {
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
+    }
 
     private static String findCorrectAnswer(int number) {
 
         return isPrime(number) ? "yes" : "no";
     }
-
     private static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
         for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
             }
         }
         return true;
-    }
-
-    public static void launchGame() {
-        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }
 }

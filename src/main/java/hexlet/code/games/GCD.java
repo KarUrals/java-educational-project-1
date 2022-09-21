@@ -15,15 +15,18 @@ public class GCD {
             int number2 = generateRandomNumberFromRange(1, MAX_RANDOM_NUMBER);
 
             //set correct answer
-            roundQuestionAnswer[1] = findCorrectAnswer(number1, number2);
+            roundQuestionAnswer[1] = calculateGCD(number1, number2);
             //set question
             roundQuestionAnswer[0] = "Question: " + number1 + " " + number2;
         }
 
         return array;
     }
+    public static void launchGame() {
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
+    }
 
-    private static String findCorrectAnswer(int firstNumber, int secondNumber) {
+    private static String calculateGCD(int firstNumber, int secondNumber) {
         int smallestNumber = Math.min(firstNumber, secondNumber);
         String correctAnswer = null;
 
@@ -34,9 +37,5 @@ public class GCD {
         }
 
         return correctAnswer;
-    }
-
-    public static void launchGame() {
-        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }
 }

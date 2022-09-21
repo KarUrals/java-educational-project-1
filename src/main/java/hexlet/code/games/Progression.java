@@ -23,13 +23,17 @@ public class Progression {
             int[] roundProgression = makeProgression(progressionSize, firstProgressionNumber, progressionStep);
 
             //set correct answer
-            roundQuestionAnswer[1] = findCorrectAnswer(roundProgression, index);
+            roundQuestionAnswer[1] = String.valueOf(roundProgression[index]);
             //set question
             roundQuestionAnswer[0] = buildQuestion(roundProgression, index);
         }
 
         return array;
     }
+    public static void launchGame() {
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
+    }
+
     private static int[] makeProgression(int size, int firstNumber, int step) {
         int[] progression = new int[size];
         for (int i = 0; i < size; i++) {
@@ -48,21 +52,5 @@ public class Progression {
         }
 
         return strBld.toString();
-    }
-
-    private static String findCorrectAnswer(int[] progression, int index) {
-        String correctAnswer = null;
-
-        for (int i = 0; i < progression.length; i++) {
-            if (i == index) {
-                correctAnswer = String.valueOf(progression[i]);
-            }
-        }
-
-        return correctAnswer;
-    }
-
-    public static void launchGame() {
-        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
     }
 }
