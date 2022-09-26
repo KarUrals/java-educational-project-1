@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
-import hexlet.code.games.Calc;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.CalculatorGame;
+import hexlet.code.games.GCDGame;
+import hexlet.code.games.ProgressionGame;
+import hexlet.code.games.PrimeGame;
 
 public class App {
     public static void main(String[] args) {
@@ -16,11 +16,11 @@ public class App {
                 System.out.print("\nWelcome to the Brain Games!\nMay I have your name? ");
                 System.out.println("Hello, " + Cli.getName() + "!");
             }
-            case "2" -> Even.launchGame();
-            case "3" -> Calc.launchGame();
-            case "4" -> GCD.launchGame();
-            case "5" -> Progression.launchGame();
-            case "6" -> Prime.launchGame();
+            case "2" -> EvenGame.launchGame();
+            case "3" -> CalculatorGame.launchGame();
+            case "4" -> GCDGame.launchGame();
+            case "5" -> ProgressionGame.launchGame();
+            case "6" -> PrimeGame.launchGame();
             default -> {
             }
         }

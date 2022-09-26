@@ -4,10 +4,14 @@ import hexlet.code.Engine;
 import static hexlet.code.RundomUtils.generateRandomNumberFromRange;
 import static hexlet.code.RundomUtils.MAX_RANDOM_NUMBER;
 
-public class Progression {
+public class ProgressionGame {
     public static final String GAME_TASK = "What number is missing in the progression?";
 
-    public static String[][] generateQuestionAnswerPairs() {
+    public static void launchGame() {
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
+    }
+
+    private static String[][] generateQuestionAnswerPairs() {
         final int step = 10;
         final int minProgressionSize = 5;
         final int maxProgressionSize = 10;
@@ -20,7 +24,7 @@ public class Progression {
             int progressionSize = generateRandomNumberFromRange(minProgressionSize, maxProgressionSize);
             int index = generateRandomNumberFromRange(0, progressionSize - 1);
 
-            int[] roundProgression = makeProgression(progressionSize, firstProgressionNumber, progressionStep);
+            int[] roundProgression = generateProgression(progressionSize, firstProgressionNumber, progressionStep);
 
             //set correct answer
             roundQuestionAnswer[1] = String.valueOf(roundProgression[index]);
@@ -30,11 +34,7 @@ public class Progression {
 
         return array;
     }
-    public static void launchGame() {
-        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
-    }
-
-    private static int[] makeProgression(int size, int firstNumber, int step) {
+    private static int[] generateProgression(int size, int firstNumber, int step) {
         int[] progression = new int[size];
         for (int i = 0; i < size; i++) {
             progression[i] = firstNumber + step * i;

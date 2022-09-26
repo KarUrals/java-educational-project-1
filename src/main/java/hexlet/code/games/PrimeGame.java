@@ -4,10 +4,14 @@ import hexlet.code.Engine;
 import static hexlet.code.RundomUtils.generateRandomNumberFromRange;
 import static hexlet.code.RundomUtils.MAX_RANDOM_NUMBER;
 
-public class Prime {
+public class PrimeGame {
     public static final String GAME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static String[][] generateQuestionAnswerPairs() {
+    public static void launchGame() {
+        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
+    }
+
+    private static String[][] generateQuestionAnswerPairs() {
         String[][] array = new String[Engine.MAX_ROUND_NUMBER][2];
 
         for (String[] roundQuestionAnswer: array) {
@@ -21,10 +25,6 @@ public class Prime {
 
         return array;
     }
-    public static void launchGame() {
-        Engine.runGame(GAME_TASK, generateQuestionAnswerPairs());
-    }
-
     private static String findCorrectAnswer(int number) {
 
         return isPrime(number) ? "yes" : "no";
