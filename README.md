@@ -12,7 +12,7 @@ Each game asks questions that need to be answered correctly. After three correct
 
 ___
 
-### Service badges
+## Service badges
 
 | Description | Badge |
 |---|:---:|
@@ -20,21 +20,47 @@ ___
 |CodeClimate maintainability status:|<a href="https://codeclimate.com/github/KarUrals/java-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/e6239fe28cfe07b09f5a/maintainability" /></a>|
 
 ___
-## Game launch examples
-#### Even game:
-![Even GIF](https://github.com/KarUrals/java-educational-project-1/blob/main/app/src/main/resources/even.gif)
-[Asciinema Link](https://asciinema.org/a/517703)
 
-#### Calc game:
+## Game launch examples
+#### Even game (*[Asciinema Link](https://asciinema.org/a/517703)*):
+![Even GIF](https://github.com/KarUrals/java-educational-project-1/blob/main/app/src/main/resources/even.gif)
+
+#### Calc game (*[Asciinema Link](https://asciinema.org/a/517706)*):
 ![Calc GIF](https://github.com/KarUrals/java-educational-project-1/blob/main/app/src/main/resources/calc.gif)
 
-[Asciinema Link](https://asciinema.org/a/517706)
+#### GCD game (*[Asciinema Link](https://asciinema.org/a/517779)*):
+![GCD GIF](https://github.com/KarUrals/java-educational-project-1/blob/main/app/src/main/resources/gcd.gif)
 
-#### GCD game asciinema:
-[![asciicast](https://asciinema.org/a/517779.svg)](https://asciinema.org/a/517779)
+#### Progression game (*[Asciinema Link](https://asciinema.org/a/517890)*):
+![Progression GIF](https://github.com/KarUrals/java-educational-project-1/blob/main/app/src/main/resources/progression.gif)
 
-#### Progression game asciinema:
-[![asciicast](https://asciinema.org/a/517890.svg)](https://asciinema.org/a/517890)
+#### Prime game (*[Asciinema Link](https://asciinema.org/a/517892)*):
+![Prime GIF](https://github.com/KarUrals/java-educational-project-1/blob/main/app/src/main/resources/prime.gif)
 
-#### Prime game asciinema:
-[![asciicast](https://asciinema.org/a/517892.svg)](https://asciinema.org/a/517892)
+___
+
+## Frequently used commands
+#### Install
+```
+make install
+```
+
+#### Run
+```
+make run-dist
+```
+
+#### Build
+```
+make build
+```
+
+#### Run checkstyle
+```
+make lint
+```
+
+#### Check for Dependency Updates
+```
+make check-updates
+```
